@@ -1,0 +1,87 @@
+<!ELEMENT charles-session (transaction*)>
+
+<!ELEMENT transaction (ssl?,alpn?,request,response)>
+<!ATTLIST transaction 
+    status  CDATA   #IMPLIED
+    method  CDATA   #IMPLIED
+	protocolVersion	CDATA	#IMPLIED
+	protocol	CDATA	#IMPLIED
+	host	CDATA	#IMPLIED
+	port	CDATA	#IMPLIED
+	actualPort	CDATA	#IMPLIED
+	path	CDATA	#IMPLIED
+	query	CDATA	#IMPLIED
+	remoteAddress	CDATA	#IMPLIED
+	clientAddress	CDATA	#IMPLIED
+	clientPort	CDATA	#IMPLIED
+	startTime	CDATA	#IMPLIED
+	startTimeMillis	CDATA	#IMPLIED
+    requestBeginTime   CDATA   #IMPLIED
+    requestBeginTimeMillis   CDATA   #IMPLIED
+    requestTime    CDATA   #IMPLIED
+    requestTimeMillis  CDATA   #IMPLIED
+    responseTime    CDATA   #IMPLIED
+    responseTimeMillis  CDATA   #IMPLIED
+	endTime	CDATA	#IMPLIED
+	endTimeMillis	CDATA	#IMPLIED
+    duration   CDATA   #IMPLIED
+    dnsDuration   CDATA   #IMPLIED
+    connectDuration   CDATA   #IMPLIED
+    sslDuration   CDATA   #IMPLIED
+    requestDuration   CDATA   #IMPLIED
+    responseDuration   CDATA   #IMPLIED
+    latency   CDATA   #IMPLIED
+    overallSpeed   CDATA   #IMPLIED
+    requestSpeed   CDATA   #IMPLIED
+    responseSpeed   CDATA   #IMPLIED
+    totalSize   CDATA   #IMPLIED
+>
+
+<!ELEMENT ssl EMPTY>
+<!ATTLIST ssl
+    protocol    CDATA   #REQUIRED
+    cipherSuite CDATA   #IMPLIED
+    charset CDATA   #IMPLIED
+>
+
+<!ELEMENT alpn EMPTY>
+<!ATTLIST alpn
+    protocol    CDATA   #REQUIRED
+>
+
+<!ELEMENT request (headers?,body?)>
+<!ATTLIST request
+	handshake	CDATA	#IMPLIED
+    headers CDATA   #REQUIRED
+    body    CDATA   #REQUIRED
+    mime-type   CDATA   #IMPLIED
+    charset CDATA   #IMPLIED
+    contentEncoding CDATA   #IMPLIED
+>
+
+<!ELEMENT response (headers?,body?)>
+<!ATTLIST response
+	status	CDATA	#IMPLIED
+	handshake	CDATA	#IMPLIED
+	headers	CDATA	#REQUIRED
+	body	CDATA	#REQUIRED
+	mime-type	CDATA	#IMPLIED
+    charset CDATA   #IMPLIED
+    contentEncoding CDATA   #IMPLIED
+>
+
+<!ELEMENT headers (first-line?,header*)>
+
+<!ELEMENT first-line (#PCDATA)>
+
+<!ELEMENT header (name,value)>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT body (#PCDATA)>
+<!ATTLIST body
+    decoded    CDATA   #IMPLIED
+    encoding    CDATA   #IMPLIED
+>

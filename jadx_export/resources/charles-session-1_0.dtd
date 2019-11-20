@@ -1,0 +1,52 @@
+<!ELEMENT charles-session (transaction*)>
+
+<!ELEMENT transaction (request,response)>
+<!ATTLIST transaction 
+	method	CDATA	#REQUIRED
+	protocolVersion	CDATA	#REQUIRED
+	protocol	CDATA	#REQUIRED
+	host	CDATA	#REQUIRED
+	port	CDATA	#REQUIRED
+	actualPort	CDATA	#REQUIRED
+	path	CDATA	#REQUIRED
+	query	CDATA	#REQUIRED
+	remoteAddress	CDATA	#REQUIRED
+	clientAddress	CDATA	#REQUIRED
+	startTime	CDATA	#REQUIRED
+	startTimeMillis	CDATA	#REQUIRED
+	responseTime	CDATA	#REQUIRED
+	responseTimeMillis	CDATA	#REQUIRED
+	endTime	CDATA	#REQUIRED
+	endTimeMillis	CDATA	#REQUIRED
+>
+
+<!ELEMENT request (headers?,body?)>
+<!ATTLIST request
+	headers	CDATA	#REQUIRED
+	body	CDATA	#REQUIRED
+	charset	CDATA	#IMPLIED
+>
+
+<!ELEMENT response (headers?,body?)>
+<!ATTLIST response
+	status	CDATA	#IMPLIED
+	headers	CDATA	#REQUIRED
+	body	CDATA	#REQUIRED
+	mime-type	CDATA	#IMPLIED
+	charset	CDATA	#IMPLIED
+>
+
+<!ELEMENT headers (first-line?,header*)>
+
+<!ELEMENT first-line (#PCDATA)>
+
+<!ELEMENT header (name,value)>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT body (#PCDATA)>
+<!ATTLIST body
+	encoding	CDATA	#REQUIRED
+>
