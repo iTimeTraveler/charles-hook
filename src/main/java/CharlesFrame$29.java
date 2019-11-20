@@ -15,6 +15,6 @@ public class CharlesFrame$29 extends CharlesShowDialogAction {
     }
 
     public Window createDialog(ActionEvent var1) {
-        return new SettingsDialog(this.chls_frame, "Xuewenlong Control Settings", new ACLSettingsPanel());
+        return new SettingsDialog(this.chls_frame, "Test Control Settings", new ACLSettingsPanel());
     }
 }
