@@ -2,8 +2,9 @@
 
 This is a hook util for `Charles`, you can use this util to:
 
-- modify charles
-- develop plugins for charles
+- skip charles' license verification.
+- modify charles.
+- develop plugins for charles.
 
 # How does it work?
 
@@ -16,3 +17,5 @@ just run the script.
 ```shell
 $ ./run.sh
 ```
+
+then you will see a **new Charles.app** in `build` directory, just open it.
